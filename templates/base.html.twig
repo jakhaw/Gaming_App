@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}PlayGames{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block header %}
+        <header>
+            <nav>
+                <div class="header-container">
+                    <div class="header-home"><a href="{{path('app_games')}}">Home</a></div>
+                    <div class="header-title">Title</div>
+                    <div class="header-profile"><a href="{{path('app_profiles')}}">Profile</a></div>
+                </div>
+            </nav>
+        </header>
+        {% endblock %}
+        {% block body %}{% endblock %}
+        {% block footer %}{% endblock %}
+    </body>
+</html>
