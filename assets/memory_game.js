@@ -6,51 +6,51 @@ document.addEventListener('DOMContentLoaded', function(){
     const cardArray = [
         {
             name: 'fries',
-            img: 'images/fries.png'
+            img: "{{asset('build/images/fries.6f78acda.png')}}"
         },
         {
             name: 'fries',
-            img: 'images/fries.png'
+            img: "{{asset('build/images/fries.6f78acda.png')}}"
         },
         {
             name: 'cheeseburger',
-            img: 'images/cheeseburger.png'
+            img: "{{asset('build/images/cheeseburger.95556f36.png')}}"
         },
         {
             name: 'cheeseburger',
-            img: 'images/cheeseburger.png'
+            img: "{{asset('build/images/cheeseburger.95556f36.png')}}"
         },
         {
             name: 'hotdog',
-            img: 'images/hotdog.png'
+            img: "{{asset('build/images/hotdog.6c776069.png')}}"
         },
         {
             name: 'hotdog',
-            img: 'images/hotdog.png'
+            img: "{{asset('build/images/hotdog.6c776069.png')}}"
         },
         {
             name: 'ice-cream',
-            img: 'images/ice-cream.png'
+            img: "{{asset('build/images/ice-cream.5d65077d.png')}}"
         },
         {
             name: 'ice-cream',
-            img: 'images/ice-cream.png'
+            img: "{{asset('build/images/ice-cream.5d65077d.png')}}"
         },
         {
             name: 'pizza',
-            img: 'images/pizza.png'
+            img: "{{asset('build/images/pizza.42689dbe.png')}}"
         },
         {
             name: 'pizza',
-            img: 'images/pizza.png'
+            img: "{{asset('build/images/pizza.42689dbe.png')}}"
         },
         {
             name: 'milkshake',
-            img: 'images/milkshake.png'
+            img: "{{asset('build/images/milkshake.ec3c5ba1.png')}}"
         },
         {
             name: 'milkshake',
-            img: 'images/milkshake.png'
+            img: "{{asset('build/images/milkshake.ec3c5ba1.png')}}"
         },
     ];
 
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function createBoard(){
         for(let i = 0; i < cardArray.length; i++){
             var card = document.createElement('img');
-            card.setAttribute('src', 'images/blank.png');
+            card.setAttribute('src', "{{asset('build/images/blank.10f6d930.png')}}");
             card.setAttribute('data-id', i);
             card.addEventListener('click', flipCard);
             grid.appendChild(card);
@@ -84,13 +84,13 @@ document.addEventListener('DOMContentLoaded', function(){
         const optionTwo = cardChosenID[1];
         if(cardChosen[0] === cardChosen[1]){
             displayAlert('U found this one', 'success');
-            cards[optionOne].setAttribute('src', 'images/white.png');
-            cards[optionTwo].setAttribute('src', 'images/white.png');
+            cards[optionOne].setAttribute('src', "{{asset('build/images/white.33a917f1.png')}}");
+            cards[optionTwo].setAttribute('src', "{{asset('build/images/white.33a917f1.png')}}");
             cardsWon.push(cardChosen);
         }else if(cardChosen[0] !== cardChosen[1]){
             displayAlert('Sorry wrong pick', 'danger');
-            cards[optionOne].setAttribute('src', 'images/blank.png');
-            cards[optionTwo].setAttribute('src', 'images/blank.png');
+            cards[optionOne].setAttribute('src', "{{asset('build/images/blank.10f6d930.png')}}");
+            cards[optionTwo].setAttribute('src', "{{asset('build/images/blank.10f6d930.png')}}");
         }
         cards.forEach(function(card){
             let item = card.getAttribute('src');
