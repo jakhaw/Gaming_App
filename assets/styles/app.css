@@ -8,7 +8,7 @@ body{
 .header-container{
     display: grid;
     grid-template-columns: auto auto auto;
-    background-color: black;
+    background-color: rgb(238, 183, 1);
     color: white;
     padding: 40px 50px;
     font-size: 28px;
@@ -22,3 +22,35 @@ body{
 .header-profile{
     text-align: end;
 }
+.games-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    padding: 50px 120px;
+}
+.games-container a{
+    text-decoration: none;
+}
+.game-content{
+    text-align: center;
+    font-size: 36px;
+    border: 7px solid rgb(238, 183, 1);
+    background-color: rgb(238, 183, 1);
+    border-radius: 30px;
+    width: 400px;
+    transition: 500ms;
+    color: white;
+}
+.game-content:hover{
+    box-shadow: 0px 0px 50px 10px rgb(238, 183, 1, 0.7);
+}
+.game-title{
+    padding: 20px 0px;
+}
+.game-img{
+    height: 500px;
+}
+.game-img img{
+    border-radius: 30px;
+}
+

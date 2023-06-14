@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('memory_game') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('memory_game') }}
+{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+      <h3>Score: <span id="result">0</span></h3>
+      <p class="alert"></p>
+        
+      <div class="grid">
+      </div>
+    </section>
+    <div class="modal">
+      <div class="again">
+        <h3>Congrats! you found them all!</h3>
+        <button class="btn">play again</button>
+      </div>
+    </div>
+</main>
+{% endblock %}

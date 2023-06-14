@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<main>
+    <section>
+        <div class="games-container">
+            <a href="{{path('app_snake')}}">
+                <div class="game-content">
+                    <div class="game-title">Snake</div>
+                    <div class="game-img">
+                        <img src="https://placehold.co/400x500" alt="">
+                    </div>
+                </div>
+            </a>
+            <a href="{{path('app_connect_four')}}">
+                <div class="game-content">
+                    <div class="game-title">Connect four</div>
+                    <div class="game-img">
+                        <img src="https://placehold.co/400x500" alt="">
+                    </div>
+                </div>
+            </a>
+            <a href="{{path('app_memory_game')}}">
+                <div class="game-content">
+                    <div class="game-title">Memory game</div>
+                    <div class="game-img">
+                        <img src="https://placehold.co/400x500" alt="">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
+
+

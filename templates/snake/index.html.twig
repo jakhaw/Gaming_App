@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('snake') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('snake') }}
+{% endblock %}
+
+{% block body %}
+<div id="gameContainer">
+    <canvas id="gameBoard" width="500" height="500"></canvas>
+    <div id="scoreText">0</div>
+    <button id="resetBtn">Reset</button>
+</div>
+{% endblock %}
