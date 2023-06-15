@@ -1,4 +1,13 @@
 import './styles/memory_game.css';
+import blank from './images/blank.png';
+import white from './images/white.png';
+import fries from './images/fries.png';
+import cheeseburger from './images/cheeseburger.png';
+import hotdog from './images/hotdog.png';
+import icecream from './images/ice-cream.png';
+import milkshake from './images/milkshake.png';
+import pizza from './images/pizza.png';
+
 
 document.addEventListener('DOMContentLoaded', function(){
      
@@ -6,51 +15,51 @@ document.addEventListener('DOMContentLoaded', function(){
     const cardArray = [
         {
             name: 'fries',
-            img: "{{asset('build/images/fries.6f78acda.png')}}"
+            img: fries
         },
         {
             name: 'fries',
-            img: "{{asset('build/images/fries.6f78acda.png')}}"
+            img: fries
         },
         {
             name: 'cheeseburger',
-            img: "{{asset('build/images/cheeseburger.95556f36.png')}}"
+            img: cheeseburger
         },
         {
             name: 'cheeseburger',
-            img: "{{asset('build/images/cheeseburger.95556f36.png')}}"
+            img: cheeseburger
         },
         {
             name: 'hotdog',
-            img: "{{asset('build/images/hotdog.6c776069.png')}}"
+            img: hotdog
         },
         {
             name: 'hotdog',
-            img: "{{asset('build/images/hotdog.6c776069.png')}}"
+            img: hotdog
         },
         {
             name: 'ice-cream',
-            img: "{{asset('build/images/ice-cream.5d65077d.png')}}"
+            img: icecream
         },
         {
             name: 'ice-cream',
-            img: "{{asset('build/images/ice-cream.5d65077d.png')}}"
+            img: icecream
         },
         {
             name: 'pizza',
-            img: "{{asset('build/images/pizza.42689dbe.png')}}"
+            img: pizza
         },
         {
             name: 'pizza',
-            img: "{{asset('build/images/pizza.42689dbe.png')}}"
+            img: pizza
         },
         {
             name: 'milkshake',
-            img: "{{asset('build/images/milkshake.ec3c5ba1.png')}}"
+            img: milkshake
         },
         {
             name: 'milkshake',
-            img: "{{asset('build/images/milkshake.ec3c5ba1.png')}}"
+            img: milkshake
         },
     ];
 
@@ -70,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function createBoard(){
         for(let i = 0; i < cardArray.length; i++){
             var card = document.createElement('img');
-            card.setAttribute('src', "{{asset('build/images/blank.10f6d930.png')}}");
+            card.setAttribute('src', blank);
             card.setAttribute('data-id', i);
             card.addEventListener('click', flipCard);
             grid.appendChild(card);
@@ -84,17 +93,17 @@ document.addEventListener('DOMContentLoaded', function(){
         const optionTwo = cardChosenID[1];
         if(cardChosen[0] === cardChosen[1]){
             displayAlert('U found this one', 'success');
-            cards[optionOne].setAttribute('src', "{{asset('build/images/white.33a917f1.png')}}");
-            cards[optionTwo].setAttribute('src', "{{asset('build/images/white.33a917f1.png')}}");
+            cards[optionOne].setAttribute('src', white);
+            cards[optionTwo].setAttribute('src', white);
             cardsWon.push(cardChosen);
         }else if(cardChosen[0] !== cardChosen[1]){
             displayAlert('Sorry wrong pick', 'danger');
-            cards[optionOne].setAttribute('src', "{{asset('build/images/blank.10f6d930.png')}}");
-            cards[optionTwo].setAttribute('src', "{{asset('build/images/blank.10f6d930.png')}}");
+            cards[optionOne].setAttribute('src', blank);
+            cards[optionTwo].setAttribute('src', blank);
         }
         cards.forEach(function(card){
             let item = card.getAttribute('src');
-            if(item !== 'images/white.png'){
+            if(item !== white){
                 card.addEventListener('click', flipCard);
             }
         })
