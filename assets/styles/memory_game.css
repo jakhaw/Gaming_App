@@ -1,79 +1,87 @@
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    height: 300px;
-  }
-  .alert
-  {
-    width: 400px;
-    margin-bottom: 1rem;
-    height: 1.25rem;
-    display: grid;
-    align-items: center;
-    text-align: center;
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-  }
-  .danger
-  {
-    color: #721c24;
-    background: #f8d7da;
-  }
-  .success
-  {
-    color: #155724;
-    background: #d4edda;
-  }
-  .modal
-  {
-    display: grid;
-    place-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f8ebec9f;
-    visibility: hidden;
-    z-index: -100;
-  }
-  .again
-  {
-    width: 400px;
-    height: 300px;
-    border-radius: 30px;
-    background-color: #fff;
-    padding: 30px 50px 50px 50px;
-    text-align: center;
-    text-transform: capitalize;
-    font-family: 'Courier New', Courier, monospace;
-    display: grid;
-    place-items: center;
-  }
-  .btn
-  {
-    text-transform: capitalize;
-    border: 2px solid #f8ebec;
-    background-color: #f8ebec;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px 30px;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 2px;
-    font-weight: 700;
-  }
-  .btn:hover
-  {
-    cursor: pointer;
-    box-shadow: 0px 0px 10px 5px #f8ebec;
-    color: #f8c8cc;
-  }
-  .modal-visible
-  {
-    visibility: visible;
-    z-index: 100;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 450px;
+}
+.memory-container{
+  display: grid;
+  place-content: center;
+}
+img{
+  width: 150px;
+  height: 150px;
+}
+.alert
+{
+  margin-bottom: 1rem;
+  height: 2.5rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-size: 1.75rem;
+  border-radius: 0.25rem;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.danger
+{
+  color: #721c24;
+  background: #f8d7da;
+}
+.success
+{
+  color: #155724;
+  background: #d4edda;
+}
+.modal
+{
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238, 183, 1, 0.3);
+  visibility: hidden;
+  z-index: -100;
+}
+.again
+{
+  width: 400px;
+  height: 300px;
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 30px 50px 50px 50px;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: 'Courier New', Courier, monospace;
+  display: grid;
+  place-items: center;
+}
+.btn
+{
+  text-transform: capitalize;
+  border: 2px solid rgb(238, 183, 1);
+  background-color: rgb(238, 183, 1);
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 2px;
+  font-weight: 700;
+  transition: 500ms;
+}
+.btn:hover
+{
+  cursor: pointer;
+  background-color: white;
+  color: rgb(238, 183, 1);
+}
+.modal-visible
+{
+  visibility: visible;
+  z-index: 100;
+}

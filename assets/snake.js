@@ -117,34 +117,34 @@ function checkGameOver(){
         running = false;
         break;
         case(snake[0].x >= gameWidth):
+        running = false;
+        break;
+        case(snake[0].y < 0):
+        running = false;
+        break;
+        case(snake[0].y >= gameHeight):
+        running = false;
+        break;
+    }
+    for(let i = 1; i < snake.length; i++){
+        if(snake[i].x == snake[0].x && snake[i].y == snake[0].y){
             running = false;
-            break;
-            case(snake[0].y < 0):
-            running = false;
-            break;
-            case(snake[0].y >= gameHeight):
-            running = false;
-            break;
         }
-        for(let i = 1; i < snake.length; i++){
-            if(snake[i].x == snake[0].x && snake[i].y == snake[0].y){
-                running = false;
-            }
-        }
-    };
-    function displayGamerOver(){
-        ctx.font = "50px MV Boli";
-        ctx.fillStyle = "black";
-        ctx.textAlign = "center";
-        ctx.fillText("GAME OVER!", gameWidth / 2, gameHeight / 2);
-    };
-    function resetGame(){
-        xVelocity = unitSize;
-        yVelocity = 0;
-        score = 0;
-        snake = [
-            {x:0, y:0}
-        ];
-        clearInterval(gameInterval);
-        gameStart();
-    };
+    }
+};
+function displayGamerOver(){
+    ctx.font = "50px MV Boli";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("GAME OVER!", gameWidth / 2, gameHeight / 2);
+};
+function resetGame(){
+    xVelocity = unitSize;
+    yVelocity = 0;
+    score = 0;
+    snake = [
+        {x:0, y:0}
+    ];
+    clearInterval(gameInterval);
+    gameStart();
+};
