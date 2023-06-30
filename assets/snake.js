@@ -20,6 +20,7 @@ let score = 0;
 let snake = [
     {x:0, y:0}
 ];
+let gameInterval = 0;
 
 window.addEventListener('keydown', changeDirection);
 resetBtn.addEventListener('click', resetGame);
@@ -41,6 +42,7 @@ function nextTick(){
         drawSnake();
         checkGameOver();
     }else{
+        clearInterval(gameInterval);
         displayGamerOver();
     }
 };

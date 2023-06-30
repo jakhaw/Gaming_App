@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Profile page</h1>
+<h1>{{userInfo.username}}</h1>
+<h1>{% if userInfo.snake_score %}
+    userInfo.snake_score
+{% else %}
+    Game not played
+{% endif %}</h1>
+<h1>{% if userInfo.time_memory_game %}
+    time_memory_game
+{% else %}
+    Game not played
+{% endif %}</h1>
 {% endblock %}

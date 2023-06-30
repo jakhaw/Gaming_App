@@ -4,23 +4,26 @@ body, html{
 body{
     margin: 0;
     padding: 0;
+    font-family: 'Cairo', sans-serif;
 }
 .header-container{
-    display: grid;
-    grid-template-columns: auto auto auto;
     background-color: rgb(238, 183, 1);
     color: white;
     padding: 40px 50px;
-    font-size: 28px;
+    font-size: 24px;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 .header-container a{
     color: white;
 }
-.header-title{
-    text-align: center;
-}
-.header-profile{
-    text-align: end;
+.header-links{
+    list-style-type: none;
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+    place-content: end;
 }
 .games-container{
     display: grid;
@@ -53,4 +56,49 @@ body{
 .game-img img{
     border-radius: 30px;
 }
-
+.login-form{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.login-form input[type=text], input[type=password]{
+    border: none;
+    border-bottom: 2px solid rgb(238, 183, 1);
+    font-size: 30px;
+    padding: 15px 10px;
+    font-family: 'Cairo', sans-serif;
+    width: 400px;
+}
+.login-form label, a{
+    font-size: 20px;
+}
+.form-content a{
+    color: rgb(238, 183, 1);
+}
+.login-form li{
+    margin-bottom: 30px;
+}
+input:focus {
+    outline: none;
+}
+.form-content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    text-align: center;
+    margin-top: 170px;
+}
+.btn-submit{
+    padding: 7px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(238, 183, 1);
+    color: white;
+    border: 2px solid rgb(238, 183, 1);
+    transition: 500ms;
+    font-family: 'Cairo', sans-serif;
+}
+.btn-submit:hover{
+    color: rgb(238, 183, 1);
+    background-color: white;
+}

@@ -2,8 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}PlayGames{% endblock %}</title>
+        <title>{% block title %}Games.js{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -17,9 +19,14 @@
         <header>
             <nav>
                 <div class="header-container">
-                    <div class="header-home"><a href="{{path('app_home')}}">Home</a></div>
-                    <div class="header-title">Title</div>
-                    <div class="header-profile"><a href="{{path('app_profiles')}}">Profile</a></div>
+                    <div class="header-title">Game.js</div>
+                    <ul class="header-links">
+                        <li><div class="header-home"><a href="{{path('app_home')}}">Home</a></div></li>
+                        {% if app.user %}
+                        <li><div class="header-profile" data-id="{{app.user.id}}"><a href="/profile/{{app.user.id}}">Profile</a></div></li>
+                        {% endif %}
+                        <li><div class="header-profile"><a href="{{path( app.user ? 'app_logout' : 'app_login')}}">{{ app.user ? 'Logout' : 'Login'}}</a></div></li>
+                    </ul>
                 </div>
             </nav>
         </header>
