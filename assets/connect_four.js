@@ -2,12 +2,13 @@ import './styles/connect_four.css';
 
 document.addEventListener('DOMContentLoaded', () => {
     const squares = document.querySelectorAll('.grid div');
-    const result = document.querySelector('#result');
     const title = document.querySelector('#title');
+    const result = document.querySelector('#result');
+    const info = document.querySelector('#alert');
     const displayCurrentPlayer = document.querySelector('#current-player');
     const currentPlayerColor = document.querySelector('#player-color');
     const btn = document.querySelector('.btn');
-    const modal = document.querySelector('.replay');
+    const modal = document.querySelector('.modal');
   
     currentPlayerColor.classList.add('player-one-text');
     let gameOver = false;
@@ -110,9 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function alert(){
-      result.innerHTML = 'Select another field';
+      info.innerHTML = 'Select another field';
       setTimeout(() => {
-        result.innerHTML = '';
+        info.innerHTML = '';
       }, 1000);
     }
   
@@ -131,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
           square4.classList.contains('player-one')
         )
         {
-          result.innerHTML = `<span class='player-one-text'>Player One</span> Wins!`
-          title.innerHTML = '--- Congratulations ---'
+          result.innerHTML = '<p>--- Congratulations ---</p>'
+          result.innerHTML += `<p><span class='player-one-text'>Player One</span> Wins!</p>`
           gameOver = true;
         }
         //check those squares to see if they all have the class of player-two
@@ -143,12 +144,13 @@ document.addEventListener('DOMContentLoaded', () => {
           square4.classList.contains('player-two')
         )
         {
-          result.innerHTML = `<span class='player-two-text'>Player Two</span> Wins!`
-          title.innerHTML = '--- Congratulations ---'
+          result.innerHTML = '<p>--- Congratulations ---</p>'
+          result.innerHTML += `<p><span class='player-two-text'>Player Two</span> Wins!</p>`
           gameOver = true;
         }
         if(gameOver){
-          modal.classList.add('replay-show');
+          title.innerHTML = '';
+          modal.classList.add('modal-visible');
           btn.addEventListener('click', ()=>{
             location.reload();
           })

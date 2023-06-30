@@ -68,7 +68,6 @@ cardArray.sort(function(){return 0.5 - Math.random()});
 
 //creating board for cards
 const grid = document.querySelector('.grid');
-const resultDisplay = document.querySelector('#result');
 const alert = document.querySelector('.alert');
 const modal = document.querySelector('.modal');
 const btn = document.querySelector('.btn');
@@ -109,7 +108,6 @@ function checkForMatches(){
     })
     cardChosen = [];
     cardChosenID = [];
-    resultDisplay.textContent = cardsWon.length;
     if(cardsWon.length === cardArray.length/2){
         modal.classList.add('modal-visible');
         btn.addEventListener('click', function(){
@@ -133,7 +131,7 @@ function flipCard(){
         })
         setTimeout(checkForMatches, 500);
     }
-    }
+}
 
 //display alert
 function displayAlert(text, type){

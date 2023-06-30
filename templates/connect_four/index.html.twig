@@ -11,10 +11,11 @@
 {% endblock %}
 
 {% block body %}
-<main>
+<main class="connect-four-board">
     <section>
-        <h3 id="title">The current Player is: <span id="player-color">Player <span id="current-player">1</span></span></h3>
-        <h3 id="result"></h3>
+        <h3 id="title">The current Player is <span id="player-color">Player <span id="current-player">1</span></span></h3>
+        <h3 id='alert'></h3>
+        
         
         <div class="grid">
             <div></div>
@@ -68,8 +69,11 @@
             <div class="taken"></div>
         </div>
     </section>
-    <div class="replay">
-        <button class="btn">Play Again</button>
+    <div class="modal">
+        <div class="replay">
+            <h3 id="result"></h3>
+            <button class="btn">Play Again</button>
+        </div>
     </div>
 </main>
 {% endblock %}
