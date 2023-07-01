@@ -1,20 +1,80 @@
 #gameContainer {
-    text-align: center;
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
 }
 #gameBoard{
-    box-shadow: 0px 0px 50px 15px;
+    box-shadow: 0px 0px 28px 12px rgb(238, 183, 1) inset;
+    padding: 30px;
+    border-radius: 30px;
 }
-#scoreText{
-    font-family: "Permanent Marker", cursive;
-    font-size: 100px;
+#endText{
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: underline;
 }
-#resetBtn{
-    font-family: "Permanent Marker", cursive;
-    font-size: 22px;
-    width: 100px;
-    height: 50px;
-    border: 4px solid;
-    border-radius: 15px;
-    cursor: pointer;
+.left{
+    display: grid;
+    place-content: center;
+    font-size: 170px;
+}
+.center{
+    display: grid;
+    place-content: center;
+}
+h3{
+    font-size: 30px;
+}
+p{
+    font-size: 26px;
+}
+.modal
+{
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238, 183, 1, 0.3);
+  visibility: hidden;
+  z-index: -100;
+}
+.again
+{
+  width: 400px;
+  height: 300px;
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 30px 50px 50px 50px;
+  text-align: center;
+  text-transform: capitalize;
+  display: grid;
+  place-items: center;
+}
+.btn
+{
+  text-transform: capitalize;
+  border: 2px solid rgb(238, 183, 1);
+  background-color: rgb(238, 183, 1);
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 700;
+  transition: 500ms;
+}
+.btn:hover
+{
+  cursor: pointer;
+  background-color: white;
+  color: rgb(238, 183, 1);
+}
+.modal-visible
+{
+  visibility: visible;
+  z-index: 100;
 }

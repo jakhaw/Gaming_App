@@ -3,11 +3,13 @@ import './styles/snake.css';
 const gameBoard = document.querySelector("#gameBoard");
 const ctx = gameBoard.getContext("2d");
 const scoreText = document.querySelector("#scoreText");
+const endText = document.querySelector("#endText");
 const resetBtn = document.querySelector("#resetBtn");
+const modal = document.querySelector('.modal');
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
 const boardBackground = "white";
-const snakeColor = "lightgreen";
+const snakeColor = "yellow";
 const snakeBorder = "black";
 const foodColor = "red";
 const unitSize = 25;
@@ -60,8 +62,12 @@ function createFood(){
     
 };
 function drawFood(){
+    ctx.beginPath();
     ctx.fillStyle = foodColor;
-    ctx.fillRect(foodX, foodY, unitSize, unitSize);
+    ctx.arc(foodX+unitSize/2, foodY+unitSize/2, unitSize/2, 0, 2*Math.PI);
+    ctx.fill();
+    ctx.strokeStyle = foodColor;
+    ctx.stroke();
 };
 function moveSnake(){
     const head = {x: snake[0].x + xVelocity, y: snake[0].y + yVelocity};
@@ -76,10 +82,19 @@ function moveSnake(){
 };
 function drawSnake(){
     ctx.fillStyle = snakeColor;
-    ctx.strokeStyle = snakeBorder;
-    snake.forEach(snakePart => {
-        ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
-        ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
+    snake.forEach(function(snakePart, index) {
+        if(index === 0){
+            ctx.strokeStyle = snakeBorder;
+            ctx.beginPath();
+            ctx.lineWidth = "5";
+            ctx.arc(snakePart.x+unitSize/2, snakePart.y+unitSize/2, unitSize/2, 0, 2*Math.PI);
+            ctx.fill();
+            ctx.stroke();
+        }else{
+            ctx.strokeStyle = snakeColor;
+            ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
+            ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
+        }
     })
 };
 function changeDirection(e){
@@ -135,18 +150,10 @@ function checkGameOver(){
     }
 };
 function displayGamerOver(){
-    ctx.font = "50px MV Boli";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
-    ctx.fillText("GAME OVER!", gameWidth / 2, gameHeight / 2);
+    endText.textContent = score;
+    modal.classList.add('modal-visible');
 };
 function resetGame(){
-    xVelocity = unitSize;
-    yVelocity = 0;
-    score = 0;
-    snake = [
-        {x:0, y:0}
-    ];
-    clearInterval(gameInterval);
-    gameStart();
+    location.reload();
+    modal.classList.remove('modal-visible');
 };
