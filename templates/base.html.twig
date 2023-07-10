@@ -23,7 +23,7 @@
                     <ul class="header-links">
                         <li><div class="header-home"><a href="{{path('app_home')}}">Home</a></div></li>
                         {% if app.user %}
-                        <li><div class="header-profile" data-id="{{app.user.id}}"><a href="/profile/{{app.user.id}}">Profile</a></div></li>
+                        <li><div class="header-profile"><a href="{{path('app_profiles')}}">Profile</a></div></li>
                         {% endif %}
                         <li><div class="header-profile"><a href="{{path( app.user ? 'app_logout' : 'app_login')}}">{{ app.user ? 'Logout' : 'Login'}}</a></div></li>
                     </ul>

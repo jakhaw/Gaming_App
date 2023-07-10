@@ -5,7 +5,7 @@
 <main>
     <section>
         <div class="games-container">
-            <a href="{{path('app_snake')}}">
+            <a href="{{path(app.user ? 'app_snake' : 'app_login')}}">
                 <div class="game-content">
                     <div class="game-title">Snake</div>
                     <div class="game-img">
@@ -13,7 +13,7 @@
                     </div>
                 </div>
             </a>
-            <a href="{{path('app_connect_four')}}">
+            <a href="{{path(app.user ? 'app_connect_four' : 'app_login')}}">
                 <div class="game-content">
                     <div class="game-title">Connect four</div>
                     <div class="game-img">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </a>
-            <a href="{{path('app_memory_game')}}">
+            <a href="{{path(app.user ? 'app_memory_game' : 'app_login')}}">
                 <div class="game-content">
                     <div class="game-title">Memory game</div>
                     <div class="game-img">
