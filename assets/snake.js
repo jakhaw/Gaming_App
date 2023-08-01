@@ -1,6 +1,8 @@
 import './styles/snake.css';
 
 const gameBoard = document.querySelector("#gameBoard");
+const user_id = document.querySelector('#user_id');
+const high_score = document.querySelector('#high_score');
 const ctx = gameBoard.getContext("2d");
 const scoreText = document.querySelector("#scoreText");
 const endText = document.querySelector("#endText");
@@ -151,7 +153,24 @@ function checkGameOver(){
 };
 function displayGamerOver(){
     endText.textContent = score;
+    let user = user_id.value;
     modal.classList.add('modal-visible');
+    $.ajax({
+        type: 'POST',
+        url: '/snake/ajax',
+        async: true,
+        data: {
+            'score': score
+        },
+
+        success: function(data){
+            high_score.textContent = data;
+        },
+
+        error: function(){
+            alert('Ajax request failed!');
+        }
+    })
 };
 function resetGame(){
     location.reload();

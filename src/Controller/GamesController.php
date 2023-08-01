@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,6 +15,22 @@ class GamesController extends AbstractController
     public function snake(): Response
     {
         return $this->render('snake/index.html.twig');
+    }
+
+    #[Route('/snake/ajax', methods: 'POST')]
+    public function snake_save_score(Request $request, Security $security, EntityManagerInterface $entityManager): Response
+    {
+        $score = $request->get('score');
+        $user = $security->getUser();
+
+        if($user->getSnake_Score() < $score){
+            $user->setSnakeScore($score);
+
+            $entityManager->persist($user);
+            $entityManager->flush();  
+        }
+
+        return new Response($user->getSnake_Score(), Response::HTTP_OK);
     }
 
     #[Route('/connect_four', name: 'app_connect_four')]

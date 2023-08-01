@@ -13,7 +13,7 @@
 {% block body %}
 <div id="gameContainer">
     <div class="left">
-        <div id="scoreText">0</div>
+        <input id="user_id" type="hidden" value="{{app.user.id}}"><span id="scoreText">0</span>
     </div>
     <div class="center">
         <canvas id="gameBoard" width="800" height="600"></canvas>
@@ -24,6 +24,7 @@
         <div>
             <h3>The end</h3>
             <p>Your score is <span id="endText"></span></p>
+            <p>Best score: <span id="high_score"></span></p>
         </div>
         <button id="resetBtn" class="btn">play again</button>
       </div>

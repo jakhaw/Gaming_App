@@ -3,4 +3,18 @@
 {% block body %}
 <h1>{{app.user.username}}</h1>
 
+<h1>Snake Game:</h1>
+{% if app.user.snake_score %}
+    <h2>Your best score: {{app.user.snake_score}}</h2>
+{% else %}
+    <h2>You have not played this game yet.</h2>
+{% endif %}
+
+<h1>Memory Game:</h1>
+{% if app.user.time_memory_game %}
+    <h2>Your best score: {{app.user.time_memory_game}}</h2>
+{% else %}
+    <h2>You have not played this game yet.</h2>
+{% endif %}
+
 {% endblock %}
