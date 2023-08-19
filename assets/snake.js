@@ -153,8 +153,6 @@ function checkGameOver(){
 };
 function displayGamerOver(){
     endText.textContent = score;
-    let user = user_id.value;
-    modal.classList.add('modal-visible');
     $.ajax({
         type: 'POST',
         url: '/snake/ajax',
@@ -162,9 +160,10 @@ function displayGamerOver(){
         data: {
             'score': score
         },
-
+        
         success: function(data){
             high_score.textContent = data;
+            modal.classList.add('modal-visible');
         },
 
         error: function(){
