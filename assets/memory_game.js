@@ -71,9 +71,16 @@ const grid = document.querySelector('.grid');
 const alert = document.querySelector('.alert');
 const modal = document.querySelector('.modal');
 const btn = document.querySelector('.btn');
+const displayTimer = document.querySelector('#timer');
+const high_score = document.querySelector('#high_score');
+const end_text = document.querySelector('#endText');
 var cardChosenID = [];
 var cardChosen = [];
 var cardsWon = [];
+var interval;
+let [tens, seconds, minutes] = [0, 0, 0];
+
+grid.addEventListener('click', startTimer);
 
 function createBoard(){
     for(let i = 0; i < cardArray.length; i++){
@@ -83,6 +90,31 @@ function createBoard(){
         card.addEventListener('click', flipCard);
         grid.appendChild(card);
     }
+}
+
+function stopwatch(){
+    tens++;
+    if(tens == 100){
+        seconds++;
+        tens = 0;
+    }
+    if(seconds == 60){
+        minutes++;
+        seconds = 0;
+    }
+
+    let m = minutes < 10 ? "0" + minutes : minutes;
+    let s = seconds < 10 ? "0" + seconds : seconds;
+    let t = tens < 10 ? "0" + tens : tens;
+
+    displayTimer.innerHTML = m + ":" + s + ":" + t;
+}
+
+function startTimer(){
+    if(interval){
+        clearInterval(interval);
+    }
+    interval = setInterval(stopwatch, 10);
 }
 
 //check matches
@@ -109,12 +141,42 @@ function checkForMatches(){
     cardChosen = [];
     cardChosenID = [];
     if(cardsWon.length === cardArray.length/2){
-        modal.classList.add('modal-visible');
-        btn.addEventListener('click', function(){
-            location.reload();
-            modal.classList.remove('modal-visible');
-        })
+        displayGameOver();
     }
+}
+
+btn.addEventListener('click', function(){
+    location.reload();
+    modal.classList.remove('modal-visible');
+})
+
+function displayGameOver(){
+    clearInterval(interval);
+    end_text.innerHTML = displayTimer.innerHTML;
+    let time = tens + seconds * 100 + minutes * 6000;
+    $.ajax({
+        type: 'POST',
+        url: '/memory_game/ajax',
+        async: true,
+        data: {
+            'time': time
+        },
+        
+        success: function(data){
+            let highestMinutes = Math.floor(data / 6000);
+            let highestSeconds = Math.floor((data % 6000) / 100);
+            let highestTens = data % 6000 % 100;
+            let m = highestMinutes < 10 ? "0" + highestMinutes : highestMinutes;
+            let s = highestSeconds < 10 ? "0" + highestSeconds : highestSeconds;
+            let t = highestTens < 10 ? "0" + highestTens : highestTens;
+            high_score.textContent = m + ":" + s + ":" + t;
+            modal.classList.add('modal-visible');
+        },
+
+        error: function(){
+            alert('Ajax request failed!');
+        }
+    })
 }
 
 //flip cards

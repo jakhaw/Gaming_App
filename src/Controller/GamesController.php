@@ -44,4 +44,20 @@ class GamesController extends AbstractController
     {
         return $this->render('memory_game/index.html.twig');
     }
+
+    #[Route('/memory_game/ajax', methods: 'POST')]
+    public function memory_game_save_time(Request $request, Security $security, EntityManagerInterface $entityManager): Response
+    {
+        $time = $request->get('time');
+        $user = $security->getUser();
+
+        if($user->getTime_Memory_Game() > $time){
+            $user->setTimeMemoryGame($time);
+
+            $entityManager->persist($user);
+            $entityManager->flush();  
+        }
+
+        return new Response($user->getTime_Memory_Game(), Response::HTTP_OK);
+    }
 }

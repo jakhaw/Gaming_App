@@ -34,8 +34,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?int $snake_score = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $time_memory_game = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $time_memory_game = null;
 
     public function getId(): ?int
     {
@@ -119,12 +119,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getTime_Memory_Game(): ?\DateTimeInterface
+    public function getTime_Memory_Game(): ?int
     {
         return $this->time_memory_game;
     }
 
-    public function setTimeMemoryGame(?\DateTimeInterface $time_memory_game): static
+    public function setTimeMemoryGame(?int $time_memory_game): static
     {
         $this->time_memory_game = $time_memory_game;
 
