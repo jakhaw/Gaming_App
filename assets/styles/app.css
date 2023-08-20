@@ -102,3 +102,19 @@ input:focus {
     color: rgb(238, 183, 1);
     background-color: white;
 }
+.profile{
+    width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile-title{
+    text-align: center;
+    color: rgb(238, 183, 1);
+}
+.profile-tab{
+    border-radius: 10px;
+    background-color: rgb(238, 183, 1);
+    color: white;
+    padding: 5px 40px;
+    margin-bottom: 20px;
+}

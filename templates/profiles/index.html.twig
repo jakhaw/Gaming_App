@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>{{username}}</h1>
-
-<h1>Snake Game:</h1>
-{% if app.user.snake_score %}
-    <h2>Your best score: {{snake_score}}</h2>
-{% else %}
-    <h2>You have not played this game yet.</h2>
-{% endif %}
-
-<h1>Memory Game:</h1>
-{% if app.user.time_memory_game %}
-    <h2>Your best time: {{memory_time}}</h2>
-{% else %}
-    <h2>You have not played this game yet.</h2>
-{% endif %}
+<main>
+    <div class="profile">
+        <div class="profile-title">
+            <h1>{{username}}'s Account</h1>
+        </div>
+        <div class="profile-tab">
+            <h1>Snake Game</h1>
+            {% if snake_score %}
+                <h2>Best score: {{snake_score}}</h2>
+            {% else %}
+                <h2>You have not played this game yet.</h2>
+            {% endif %}
+        </div>
+        <div class="profile-tab">
+            <h1>Memory Game</h1>
+            {% if memory_time %}
+                <h2>Best time: {{memory_time}}</h2>
+            {% else %}
+                <h2>You have not played this game yet.</h2>
+            {% endif %}
+        </div>
+    </div>
+</main>
 
 {% endblock %}
