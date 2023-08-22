@@ -15,6 +15,8 @@ Register and login to Your account, play JavaScript games and set new records.
 - Composer
 - MySQL
 - Webpack Encore
+- Ajax
+- JQuery
 
 ## Usage
 
