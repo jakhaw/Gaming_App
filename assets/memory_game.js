@@ -156,20 +156,14 @@ function displayGameOver(){
     let time = tens + seconds * 100 + minutes * 6000;
     $.ajax({
         type: 'POST',
-        url: '/memory_game/ajax',
+        url: '/memory_game/save',
         async: true,
         data: {
             'time': time
         },
         
         success: function(data){
-            let highestMinutes = Math.floor(data / 6000);
-            let highestSeconds = Math.floor((data % 6000) / 100);
-            let highestTens = data % 6000 % 100;
-            let m = highestMinutes < 10 ? "0" + highestMinutes : highestMinutes;
-            let s = highestSeconds < 10 ? "0" + highestSeconds : highestSeconds;
-            let t = highestTens < 10 ? "0" + highestTens : highestTens;
-            high_score.textContent = m + ":" + s + ":" + t;
+            high_score.textContent = data;
             modal.classList.add('modal-visible');
         },
 

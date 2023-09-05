@@ -155,7 +155,7 @@ function displayGamerOver(){
     endText.textContent = score;
     $.ajax({
         type: 'POST',
-        url: '/snake/ajax',
+        url: '/snake/save',
         async: true,
         data: {
             'score': score

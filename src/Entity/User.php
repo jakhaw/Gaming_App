@@ -114,19 +114,34 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setSnakeScore(?int $snake_score): static
     {
-        $this->snake_score = $snake_score;
+        if($this->snake_score < $snake_score)
+        {
+            $this->snake_score = $snake_score;
+        }
 
         return $this;
     }
 
-    public function getTime_Memory_Game(): ?int
+    public function getTime_Memory_Game_Calc(): ?string
     {
-        return $this->time_memory_game;
+        $time = $this->time_memory_game;
+        $minutes = floor($time/6000);
+        $seconds = floor(($time % 6000) / 100);
+        $tens = $time % 6000 % 100;
+        $m = $minutes < 10 ? "0".$minutes : $minutes;
+        $s = $seconds < 10 ? "0".$seconds : $seconds;
+        $t = $tens < 10 ? "0".$tens : $tens;
+        $bestTime = $m.":".$s.":".$t;
+
+        return $bestTime;
     }
 
     public function setTimeMemoryGame(?int $time_memory_game): static
     {
-        $this->time_memory_game = $time_memory_game;
+        if($this->time_memory_game > $time_memory_game || $this->time_memory_game === NULL)
+        {
+            $this->time_memory_game = $time_memory_game;
+        }
 
         return $this;
     }
