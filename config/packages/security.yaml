@@ -33,6 +33,9 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/snake, roles: ROLE_USER }
+        - { path: ^/connect_four, roles: ROLE_USER }
+        - { path: ^/memory_game, roles: ROLE_USER }
 
 when@test:
     security:
