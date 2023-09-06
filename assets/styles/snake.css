@@ -79,3 +79,6 @@ p{
   visibility: visible;
   z-index: 100;
 }
+.modal a{
+  color: rgb(238, 183, 1);
+}
